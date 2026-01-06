@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: dim_anime
+    description: "Dimension table with one row per anime and descriptive attributes."
+    columns:
+      - name: mal_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_genre
+    description: "One row per unique anime genre with a deterministic surrogate key."
+    columns:
+      - name: genre_id
+        tests:
+          - not_null
+          - unique
+      - name: genre_name
+        tests:
+          - not_null
+          - unique

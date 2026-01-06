@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: bridge_anime_genre
+    description: "Many-to-many mapping between anime and genres."
+
+    columns:
+      - name: mal_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_anime')
+              field: mal_id
+
+      - name: genre_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_genre')
+              field: genre_id
+
+    tests:
+      - unique:
+          column_name: "mal_id || '-' || genre_id"

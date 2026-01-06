@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: fact_anime_metrics
+    description: "Fact table with one row per anime and aggregated metrics."
+    columns:
+      - name: mal_id
+        tests:
+          - not_null
+          - unique

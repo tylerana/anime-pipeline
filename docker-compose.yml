@@ -22,6 +22,54 @@ services:
       DB_USER: user
       DB_PASS: password
       DB_NAME: anime_db
-
+      
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-postgres:1.7.9
+    volumes:
+      - .:/usr/app
+      - ~/.dbt:/root/.dbt
+    working_dir: /usr/app
+    depends_on:
+      - db
 volumes:
   postgres_data:
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

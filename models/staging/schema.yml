@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_anime
+    description: "Cleaned 1:1 staging model from the Jikan anime table."
+    columns:
+      - name: mal_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_anime_genres
+    description: "Exploded genre values with one row per (mal_id, genre)."
+    columns:
+      - name: mal_id
+        tests:
+          - not_null
+      - name: genre
+        tests:
+          - not_null
