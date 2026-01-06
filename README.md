@@ -2,7 +2,6 @@
 
 A Dockerized ELT pipeline that ingests MyAnimeList data via the Jikan API, loads it into Postgres, and models analytics-ready tables using dbt.
 
----
 
 ## Architecture Overview
 
@@ -13,7 +12,7 @@ A Dockerized ELT pipeline that ingests MyAnimeList data via the Jikan API, loads
 
 All components are orchestrated locally using Docker Compose.
 
----
+
 
 ## Tech Stack
 
@@ -22,7 +21,6 @@ All components are orchestrated locally using Docker Compose.
 - dbt Core (dbt-postgres 1.7.9)
 - Docker & Docker Compose
 
---- 
 
 ## Data Modeling
 The warehouse follows a star-schema-inspired design:
@@ -45,8 +43,6 @@ The warehouse follows a star-schema-inspired design:
 - `bridge_anime_genre`
   Many-to-many relationship between anime and genres
 
--- 
-
 ## Data Quality & Testing
 Data quality is enforced using dbt tests, all of which are currently passing.
 
@@ -59,8 +55,6 @@ Tests include:
 - Composite uniqueness enforced on `(mal_id, genre_id)` in the bridge table
 
 These tests ensure consistent grain, valid relationships, and reliable downstream
-
----
 
 ## Running the Project
 
